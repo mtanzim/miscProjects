@@ -1,0 +1,38 @@
+        
+
+
+        
+#method 2
+    
+        blank="-999.0"
+        month_count=1
+        day_count=1
+        last_year=0
+        last_month=1
+        
+        #day_count=1
+        for line in inFile:
+            tokens=line.split()
+            current_year=tokens[0]
+            current_month=tokens[1]
+
+            if abs(int(current_month)-last_month)>1:
+                print "Missing values here:"
+                print line
+
+                
+                month_count=last_month
+                if last_year != 0 and int(current_year)!=last_year:
+                    current_month=13
+                
+                while month_count < int(current_month):
+                    while day_count < 32:
+                        outFile.write (current_year+' '+str(month_count)+' '+str(day_count)+' '+blank+'\n')
+                        day_count+=1
+                    month_count+=1
+                    day_count=1
+                month_count=1
+
+            last_year=int(current_year)
+            last_month=int(current_month)
+            outFile.write(line)
