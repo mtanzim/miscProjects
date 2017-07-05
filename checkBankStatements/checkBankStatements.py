@@ -9,7 +9,7 @@ import sys
 
 class cost:
     
-    EATGOUT = ["banh","spirit","nando","subway","tim horton", "mcdonald","soda-snack","lcbo", "cafe","bar","pho","noodle"];
+    EATGOUT = ["banh","spirit","nando","subway","tim horton", "mcdonald","soda-snack","lcbo", "cafe","bar","pho","noodle"]
     FEES=[]
     GROC =["nofrills", "metro","whole foods"]
     HLTH=["honsberger","la fitness"]
