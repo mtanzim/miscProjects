@@ -64,7 +64,7 @@ class cost:
 files = os.listdir(os.getcwd())
 costs_arr=[]
 ####MONTH###
-MONTH_REQ='06'
+MONTH_REQ=sys.argv[1]
 ####MONTH###
 DATE_TOKEN=0
 DESC_TOKEN=1
