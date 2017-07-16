@@ -76,7 +76,7 @@ outFile=open(MONTH_REQ+".csv", 'w')
 COST_EXCLUDE = ["TD VISA PREAUTH PYMT", "MONTHLY ACCOUNT FEE ", "QUESTRADE"]
 
 for file_i in files:
-    if ('.csv' in file_i and file_i!=str(outFile)):
+    if ('accountactivity' in file_i and file_i!=str(outFile)):
         #print (file_i)
         inFile=open(file_i, 'r')
         for line in inFile:
@@ -98,6 +98,7 @@ costs_arr.sort(key=lambda x:x.date)
 
 #printing function
 outFile.write ("Date,Activity,Amount,Category\n") 
+totalCost=0
 for i in costs_arr:
     includeCost=True
     for invalid_cost in COST_EXCLUDE:
@@ -106,6 +107,9 @@ for i in costs_arr:
             includeCost=False;
     if (i.month==MONTH_REQ and i.delta>0 and includeCost):
         outFile.write (i.date+','+str(i.desc)+','+str(i.delta)+','+i.category+'\n')
+        totalCost+=i.delta  
         #print(i.date+','+str(i.desc)+','+str(i.delta)+','+i.category+'\n')
 
+outFile.write (''+','+'Total Spent'+','+str(totalCost)+','+''+'\n')
 outFile.close()
+print "$"+str(totalCost)
