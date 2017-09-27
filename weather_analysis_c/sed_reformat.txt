@@ -1,0 +1,11 @@
+#This script adds a comma delimiter for important fields
+
+s/\n/:/g
+
+
+
+
+
+
+
+
